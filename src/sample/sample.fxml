@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.canvas.Canvas?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ColorPicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+   <children>
+      <VBox layoutX="14.0" layoutY="14.0" prefHeight="50.0" prefWidth="975.0">
+         <children>
+            <HBox prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <ColorPicker fx:id="colorPicker">
+                     <HBox.margin>
+                        <Insets right="20.0" />
+                     </HBox.margin>
+                  </ColorPicker>
+                  <CheckBox fx:id="rubber" mnemonicParsing="false" prefHeight="27.0" prefWidth="71.0" text="Rubber">
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                  </CheckBox>
+                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="27.0" prefWidth="40.0" text="Size">
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                  </Label>
+                  <TextField fx:id="sizeBtn" prefHeight="27.0" prefWidth="39.0" text="12">
+                     <HBox.margin>
+                        <Insets right="20.0" />
+                     </HBox.margin>
+                  </TextField>
+                  <CheckBox fx:id="circle" mnemonicParsing="false" prefHeight="27.0" prefWidth="66.0" text="Circle" />
+                  <CheckBox fx:id="square" mnemonicParsing="false" prefHeight="27.0" prefWidth="66.0" text="Square" />
+               </children>
+               <padding>
+                  <Insets top="10.0" />
+               </padding>
+            </HBox>
+         </children>
+      </VBox>
+      <BorderPane layoutX="14.0" layoutY="64.0" prefHeight="625.0" prefWidth="975.0" style="-fx-border-style: solid; -fx-border-color: black;">
+         <center>
+            <Canvas fx:id="canvas" height="625.0" style="" width="975.0" BorderPane.alignment="CENTER" />
+         </center>
+      </BorderPane>
+   </children>
+</Pane>
