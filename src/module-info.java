@@ -5,5 +5,7 @@ module Paint {
     requires javafx.media;
     requires java.desktop;
     requires javafx.controls;
+    requires javafx.swing;
+
     opens sample;
 }
