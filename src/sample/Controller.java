@@ -5,10 +5,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
-import javafx.scene.control.CheckBox;
-import javafx.scene.control.ColorPicker;
-import javafx.scene.control.TextField;
-import javafx.scene.image.Image;
+import javafx.scene.control.*;
 import javafx.scene.image.WritableImage;
 import javafx.scene.input.KeyEvent;
 
@@ -24,11 +21,15 @@ public class Controller implements Initializable {
     @FXML
     private ColorPicker colorPicker;
     @FXML
-    private TextField sizeBtn;
-    @FXML
     private Canvas canvas;
     @FXML
     private CheckBox rubber, square, circle;
+    @FXML
+    private Spinner spinner;
+
+
+
+
 
     GraphicsContext graphicsContext;
 
@@ -48,18 +49,16 @@ public class Controller implements Initializable {
     public void onExit(){
         System.exit(0);
     }
-    public void numberOnly(KeyEvent keyEvent) {
-
-
-    }
-
 
     @Override
     public void initialize(URL url, ResourceBundle rb){
         graphicsContext = canvas.getGraphicsContext2D();
+        SpinnerValueFactory<Double> sizeFont = new SpinnerValueFactory.DoubleSpinnerValueFactory(1,72,12);
+        spinner.setValueFactory(sizeFont);
 
         canvas.setOnMouseDragged(e->{
-            double size = Double.parseDouble(sizeBtn.getText());
+
+            double size = (double) spinner.getValue();
             double x = e.getX() - size/2;
             double y = e.getY() - size/2;
             if(rubber.isSelected()){
@@ -76,6 +75,5 @@ public class Controller implements Initializable {
         });
 
     }
-
 
 }
