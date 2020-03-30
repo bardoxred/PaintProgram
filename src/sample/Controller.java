@@ -7,7 +7,7 @@ import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.*;
 import javafx.scene.image.WritableImage;
-import javafx.scene.input.KeyEvent;
+import javafx.stage.FileChooser;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
@@ -27,23 +27,28 @@ public class Controller implements Initializable {
     @FXML
     private Spinner spinner;
 
-
-
-
-
     GraphicsContext graphicsContext;
 
     public void onSave(){
 
-        WritableImage file = canvas.snapshot(null,null);
-        BufferedImage bImage = SwingFXUtils.fromFXImage(file,null);
-        try{
-            ImageIO.write(bImage, "png", new File("src/Image/image.png"));
-        }
-        catch (IOException e){
-            System.out.println("coś nie działa xD");
-        }
+        WritableImage writableImage = canvas.snapshot(null,null);
+        BufferedImage bImage = SwingFXUtils.fromFXImage(writableImage,null);
 
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Save to");
+        fileChooser.setInitialDirectory(new File("/Users"));
+        fileChooser.getExtensionFilters().addAll(new FileChooser.ExtensionFilter("png","*.png"),
+                new FileChooser.ExtensionFilter("jpg", "*.jpg"));
+       try{
+           File file = fileChooser.showSaveDialog(null);
+           ImageIO.write(bImage,"png", new File(file.getAbsolutePath()));
+
+       }
+       catch (Exception ex){
+
+           System.out.println("Not working");
+
+       }
 
         }
     public void onExit(){
