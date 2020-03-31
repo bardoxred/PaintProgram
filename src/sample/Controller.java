@@ -12,7 +12,6 @@ import javafx.stage.FileChooser;
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
 import java.io.File;
-import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -23,7 +22,7 @@ public class Controller implements Initializable {
     @FXML
     private Canvas canvas;
     @FXML
-    private CheckBox rubber, square, circle;
+    private CheckBox rubber, square, circle, line;
     @FXML
     private Spinner spinner;
 
@@ -77,7 +76,18 @@ public class Controller implements Initializable {
                 graphicsContext.setFill(colorPicker.getValue());
                 graphicsContext.fillOval(x,y,size,size);
             }
+            else if(line.isSelected()){
+                graphicsContext.setLineWidth(size);
+                graphicsContext.setStroke(colorPicker.getValue());
+                graphicsContext.lineTo(e.getSceneX()-15,e.getSceneY()-65);
+                graphicsContext.stroke();
+            }
         });
+        canvas.setOnMousePressed(e->{
+            graphicsContext.beginPath();
+            graphicsContext.stroke();
+        });
+
 
     }
 

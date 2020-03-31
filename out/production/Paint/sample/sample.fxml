@@ -68,6 +68,11 @@
                      <font>
                         <Font size="14.0" />
                      </font></CheckBox>
+                  <CheckBox fx:id="line" mnemonicParsing="false" prefHeight="27.0" prefWidth="79.0" text="Line" textFill="#e8b602">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </CheckBox>
                </children>
                <padding>
                   <Insets top="10.0" />
